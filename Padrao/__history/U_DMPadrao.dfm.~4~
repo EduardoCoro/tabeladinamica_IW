@@ -1,0 +1,26 @@
+object DMPadrao: TDMPadrao
+  OldCreateOrder = False
+  Height = 409
+  Width = 637
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      'Database=Fun'
+      'User_Name=sa'
+      'Password=Laercio123'
+      'Server=LAPTOP-FEJNEQ89\SQLEXPRESS'
+      'DriverID=MSSQL')
+    LoginPrompt = False
+    BeforeConnect = FDConnectionBeforeConnect
+    Left = 64
+    Top = 16
+  end
+  object FDPhysMSSQLDriverLink: TFDPhysMSSQLDriverLink
+    Left = 192
+    Top = 16
+  end
+  object FDGUIxWaitCursor: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 328
+    Top = 16
+  end
+end

@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+  <title>Index</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+  <script src="../../../js/jquery.min.js"></script>
+  <script src="../../../js/bootstrap.min.js"></script>
+		
+  <script type="text/javascript">
+      function DecorarGrid(){
+         document.getElementById("TBLIWDBGRIDCONSULTA").className = "table  table-bordered";
+      }
+  </script>  
+</head>
+  
+<body>
+    <div align="center">
+
+      <div class="container-fluid">	 
+         <div style='width: 100%; min-width: 320px; height: 200px; background: black'>
+		      <img  src="../img/jardim03.jpeg" alt="Cinque Terre" width="400" height="200" align="Left">
+		 </div>	
+         <div style='width: 100%; min-width: 320px; height: auto; background: green;'>
+		      {%IWTextMenuNav%}
+		 </div>  
+		 
+         <div style="background: black; left: 0px; width: 100%;  min-width: 320px; height: 60px; right: 0px; bottom: 0px; position: fixed;">
+               
+         </div>
+      </div>
+	  
+      <div class="container" style='width: 100%; height: auto; min-width: 320px; background-image: url("../Img/FundoAzul.Jpg");'>
+            <img class="img-thumbnail" src="../img/ItSoluction.png"  alt="Cinque Terre" width="400" height="80">
+      </div>
+
+      <div class="well well-sm" style="width: 100%; min-width: 320px;">
+	      {%IWButtonVoltar%} {%IWButtonPesquisar%}{%IWButtonIncluir%}{%IWButtonAlterar%}
+		  {%IWButtonExcluir%}{%IWButtonImprimirPoPup%} {%IWButtonImprimirForm%}
+      </div>
+
+      <div class="table table-bordered"> {%IWDBGridConsulta%} </div>
+
+      <div style="width: 100%; min-width: 320px; background-color: rgb(250, 235, 215);">
+		     {%IWButtonPrimeiro%}{%IWButtonAnterior%}{%IWButtonProximo%}{%IWButtonUltimo%}
+      </div>
+	  
+    </div> 
+</body>
+</html>

@@ -1,0 +1,192 @@
+<html lang="en">
+<head>
+  <title>Cadastro Plano</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../css/Estilo.css" rel="stylesheet">
+  <script src="../../../js/jquery.min.js"></script>
+  <script src="../../../js/bootstrap.min.js"></script>
+  
+  <script type="text/javascript">
+          function DecorarGrid(){
+             document.getElementById("TBLIWDBGRIDCONSULTA").className     = "table";
+			 document.getElementById("TBLIWDBGRIDCONSVENDA").className    = "table";
+			 document.getElementById("TBLIWDBGRIDSERVICOVENDA").className = "table";
+          }
+          window.onload=DecorarGrid;
+          window.setTimeout(DecorarGrid, 1000);
+  </script>
+</head>
+  
+<body>
+    <div align="center">
+
+      <div align="left" style="width: 98%; min-width: 320px; height: 100px; background: #f5f5f5;">
+           <object type="text/html" data="./cabecalho.html" 
+		           style="width: 100%; min-width: 320px; height: 120px; background: #f5f5f5;">
+		   </object>
+	    </div> 
+
+      <div align="center">	 
+         <div style="width: 98%; min-width: 320px; height: auto; margin-top: 3px;"> 
+		      {%IWTextMenuNav%}
+		 </div>  
+      </div>   
+	  
+	  <DIV class="container-fluid" style="text-align: left; font-size: 20px; font-weight: bold; height: 50px">
+	       >> CADASTRO DE CLIENTE
+	  </DIV>
+	  
+	  <div class="well well-sm" style="width: 90%; min-width: 320px; margin-top: 0px;">
+	      {%IWButtonSalvar%}{%IWButtonCancelar%}	  
+      </div>
+	  
+	  <div class="table-responsive" style="width: 90%; min-width: 320px; margin-top: 0px;">  
+			<table class="table">
+    			<thead>
+				  <tr>
+					 <th>Nome</th> <th>DT Nascimento</th> <th>Telefone</th>
+				  </tr>
+				</thead>			
+				<tbody>			
+				  <tr>
+					 <td>{%IWDBEditNome%}</td> <td>{%IWDBEditDataNascimento%}</td> <td>{%IWDBEditTelefone%}</td>
+				  </tr>				  
+				</tbody>
+				<thead>
+				  <tr>
+					 <th>Lougradouro</th> <th>Bairro</th> <th>Cep</th>
+				  </tr>
+				</thead>			
+				<tbody>			
+				  <tr>
+					<td>{%IWDBEditLougradouro%}</td> <td>{%IWDBEditBairro%}</td> <td>{%IWDBEditCep%}</td>
+				  </tr>				  
+				</tbody>
+				<thead>
+				  <tr>
+					<th>Cidade</th> <th>Estado</th> <th>Cpf</th>
+				  </tr>
+				</thead>			
+				<tbody>			
+				  <tr>
+					<td>{%IWDBEditCidade%}</td> <td>{%IWDBEditEstado%}</td> <td>{%IWDBEditCpf%}</td>
+				  </tr>				  
+				</tbody>
+				<thead>
+				  <tr>
+					<th>Tipo Pessoa</th>
+				  </tr>
+				  </thead>
+				  <tr>
+					<td>{%IWFrameLookUpTipoPessoa%} </td> 
+				  </tr>
+				<thead>
+				  <tr>
+					<th>Email</th> <th>Rg</th> <th>Orgão Exp</th>
+				  </tr>
+				</thead>			
+				<tbody>					
+				  <tr>
+					<td>{%IWDBEditOrgaoExpedidor%}</td>
+				  </tr>	                    				  
+				</tbody>
+			</table> 
+		</div>			
+	 
+	  <div  style="width: 100%; min-width: 320px; margin-top: 0px;">
+		  <ul class="nav nav-tabs" style="width: 90%; min-width: 320px; margin-top: 0px;">
+			<li class="active"><a data-toggle="tab" href="#home">Dependentes</a></li>
+			<li><a data-toggle="tab" href="#Venda">Compras do Cliente</a></li>
+			<li><a data-toggle="tab" href="#menu2">Histórico de Pagamentos</a></li>
+			<li><a data-toggle="tab" href="#menu3">Óbitos</a></li>
+		  </ul>
+	  </div>
+	  <div class="tab-content">		  
+			<div id="home" class="tab-pane fade in active">			
+			     <div style="width: 90%; min-width: 320px; margin-top: 20px;"> {%IWDBGridConsulta%} </div>
+				 <div class="table-responsive well"  style="width: 90%; min-width: 320px;  margin-top: 20px"> 
+					<table class="table">
+                      <thead>
+						  <tr>							 
+							<th>Nome Dependente</th>
+							<th>DT Nascimento</th>
+							<th>DT Carência</th>
+							<th>Dependência</th>
+						  </tr>	
+                      </thead> 
+					  <tbody>	
+						  <tr>
+							<td>{%IWDBEditNomeDepend%}</td>
+							<td>{%IWDBEditDTNascimentoDepend%}</td>
+							<td>{%IWDBEditDTCarenciaDepend%}</td>
+							<td>{%IWDBLookupCBGrauDepend%}</td>
+						  </tr>	
+					  </tbody>		  
+					</table> 
+					<div style="width: 98%; min-width: 320px; margin-top: 15px;">
+	                  {%IWButtonIncluirDependente%} {%IWButtonAlterarDependente%} {%IWButtonExcluirDependente%}
+					  {%IWButtonCancelarDependente%} {%IWButtonConfirmarDependente%}	  
+                    </div>
+				 </div>				 
+			</div>		
+			
+			<div id="Venda" class="tab-pane fade">
+			  <div align="left" style="width: 90%; min-width: 320px; margin-top: 20px;"> <h4> <b>Compras do Cliente </div>
+			  <div style="width: 90%; min-width: 320px; margin-top: 20px;"> {%IWDBGridCONSVENDA%} </div>
+			  <div style="width: 90%; min-width: 320px; margin-top: 10px;"> 
+			       Adicione uma Venda para o Cliente:  {%IWButtonIncluirVenda%}{%IWButtonCancelarVenda%}
+			  </div>
+			  <div align="left"  style="width: 90%; min-width: 320px; margin-top: 60px;"> <h4> <b>Serviços da Compra do Cliente </div>
+			  <div style="width: 90%; min-width: 320px; margin-top: 20px;"> {%IWDBGridServicoVenda%} </div>			  
+			  <div class="table-responsive well"  style="width: 90%; min-width: 320px;  margin-top: 05px"> 
+					<table class="table">
+                      <thead>
+						  <tr>							 
+							<th>Serviço</th>
+							<th>Quantidade</th>
+							<th>Preço</tthd>
+						  </tr>	
+                      </thead> 
+					  <tbody>	
+						  <tr>
+							<td>{%IWDBLookupCBServicoVenda%}</td>
+							<td>{%IWDBEditQuantidadeServico%}</td>
+							<td>{%IWDBEditPrecoServico%}</td>
+						  </tr>	
+					  </tbody>		  
+					</table> 
+					<div style="width: 98%; min-width: 320px; margin-top: 10px;">
+	                  {%IWButtonIncluirServicoVenda%} {%IWButtonAlterarServicoVenda%} {%IWButtonExcluirServicoVenda%}
+					  {%IWButtonCancelarServicoVenda%} {%IWButtonConfirmarServicoVenda%}	  
+                    </div>
+				 </div>					 
+			</div>
+			<div class="table-responsive" style="width: 98%;  min-width: 320px; background-color: Black; margin-top: 5px; height: 60px">
+		   
+            </div>
+				
+			<div id="menu2" class="tab-pane fade">
+			  <p>Tudo sobre controle</p>
+			</div>  
+			<div id="menu3" class="tab-pane fade">
+			  <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+			</div>	
+			
+			<div style="width: 98%; min-width: 320px; height: 80px; background: #f5f5f5;">
+			   <object type="text/html" data="./rodape.html" 
+					   style="width: 100%; min-width: 320px; height: 80px; background: #f5f5f5;">
+			   </object>
+	        </div> 
+  		
+	 </div>
+	 
+     </div>  
+	
+</body>
+</html>

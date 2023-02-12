@@ -1,0 +1,6 @@
+object IWUserSession: TIWUserSession
+  OnCreate = IWUserSessionBaseCreate
+  Height = 351
+  Width = 579
+  PixelsPerInch = 96
+end

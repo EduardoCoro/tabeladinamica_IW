@@ -1,0 +1,38 @@
+unit U_DMPadrao;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait,
+  Data.DB, FireDAC.Comp.Client, FireDAC.Phys.MSSQLDef, FireDAC.Comp.UI,
+  FireDAC.Phys.ODBCBase, FireDAC.Phys.MSSQL;
+
+type
+  TDMPadrao = class(TDataModule)
+    FDConnection: TFDConnection;
+    FDPhysMSSQLDriverLink: TFDPhysMSSQLDriverLink;
+    FDGUIxWaitCursor: TFDGUIxWaitCursor;
+    procedure FDConnectionBeforeConnect(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DMPadrao: TDMPadrao;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+procedure TDMPadrao.FDConnectionBeforeConnect(Sender: TObject);
+begin
+   FDConnection.Params.LoadFromFile('LocalBanco.TXT');
+end;
+
+end.

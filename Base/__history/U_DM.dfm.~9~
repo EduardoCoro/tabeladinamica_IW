@@ -1,0 +1,162 @@
+inherited DM: TDM
+  Width = 763
+  PixelsPerInch = 96
+  inherited FDConnection: TFDConnection
+    Params.Strings = (
+      'Database=Fun'
+      'User_Name=sa'
+      'Password=Laercio123'
+      'Server=LAPTOP-FEJNEQ89\SQLEXPRESS'
+      'DriverID=MSSQL')
+  end
+  object FDQUsuario: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'select * from usuario where login = :login  and senha = :senha')
+    Left = 222
+    Top = 88
+    ParamData = <
+      item
+        Position = 1
+        Name = 'LOGIN'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Position = 2
+        Name = 'SENHA'
+        DataType = ftString
+        ParamType = ptInput
+      end>
+  end
+  object DSPUsuario: TDataSetProvider
+    DataSet = FDQUsuario
+    Left = 222
+    Top = 146
+  end
+  object CDSUsuario: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftString
+        Name = 'LOGIN'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'SENHA'
+        ParamType = ptInput
+      end>
+    ProviderName = 'DSPUsuario'
+    Left = 222
+    Top = 205
+    object CDSUsuarioid_usuario: TLargeintField
+      FieldName = 'id_usuario'
+      Required = True
+    end
+    object CDSUsuarionome: TStringField
+      FieldName = 'nome'
+      Required = True
+      Size = 50
+    end
+    object CDSUsuariologin: TStringField
+      FieldName = 'login'
+      Required = True
+      Size = 50
+    end
+    object CDSUsuariosenha: TStringField
+      FieldName = 'senha'
+      Required = True
+      Size = 50
+    end
+  end
+  object MainMenuSistema: TMainMenu
+    Left = 80
+    Top = 88
+    object Cadastros1: TMenuItem
+      Caption = 'Cadastros'
+      object Planos1mn: TMenuItem
+        Caption = 'Planos'
+        OnClick = Planos1mnClick
+      end
+      object Servios1: TMenuItem
+        Caption = 'Servi'#231'os'
+        OnClick = Servios1Click
+      end
+      object Servios2: TMenuItem
+        Caption = 'Clientes'
+        OnClick = Servios2Click
+      end
+      object Usuario2: TMenuItem
+        Caption = 'Usuario'
+        OnClick = Usuario2Click
+      end
+    end
+    object Planos1: TMenuItem
+      Caption = 'Planos'
+      object Planos2: TMenuItem
+        Caption = 'Contratar Plano'
+      end
+      object CancelarPlano1: TMenuItem
+        Caption = 'Cancelar Plano'
+      end
+    end
+    object CancelarPlano2: TMenuItem
+      Caption = 'Servi'#231'os'
+      object Comunicarbito1: TMenuItem
+        Caption = 'Comunicar '#211'bito'
+      end
+      object Comunicarbito2: TMenuItem
+        Caption = 'Ontros'
+        object Outros011: TMenuItem
+          Caption = 'Outros 01'
+        end
+        object Outros012: TMenuItem
+          Caption = 'Outros 02'
+        end
+        object Outros031: TMenuItem
+          Caption = 'Outros 03'
+        end
+      end
+    end
+    object Outros032: TMenuItem
+      Caption = 'Informa'#231#245'es'
+    end
+    object esteRedireciona1: TMenuItem
+      Caption = 'Teste Redireciona'
+    end
+  end
+  object CDSParametrosConsulta: TClientDataSet
+    PersistDataPacket.Data = {
+      A60000009619E0BD010000001800000005000000000003000000A60002494408
+      00010000000000084E6F6D65466F726D01004900000001000557494454480200
+      020064000C4E6F6D65436F6E74726F6C65010049000000010005574944544802
+      00020064000C5469706F436F6E74726F6C650100490000000100055749445448
+      0200020064000D56616C6F72436F6E74726F6C65010049000000010005574944
+      54480200020064000000}
+    Active = True
+    Aggregates = <>
+    Params = <>
+    Left = 80
+    Top = 160
+    object CDSParametrosConsultaID: TLargeintField
+      FieldName = 'ID'
+    end
+    object CDSParametrosConsultaNomeForm: TStringField
+      FieldName = 'NomeForm'
+      Size = 100
+    end
+    object CDSParametrosConsultaNomeControle: TStringField
+      FieldName = 'NomeControle'
+      Size = 100
+    end
+    object CDSParametrosConsultaTipoControle: TStringField
+      FieldName = 'TipoControle'
+      Size = 100
+    end
+    object CDSParametrosConsultaValorControle: TStringField
+      FieldName = 'ValorControle'
+      Size = 100
+    end
+  end
+end

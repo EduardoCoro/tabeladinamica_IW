@@ -1,0 +1,96 @@
+unit U_DM;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, U_DMPadrao, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
+  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
+  FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client, FireDAC.Phys.MSSQLDef,
+  FireDAC.Comp.UI, FireDAC.Phys.ODBCBase, FireDAC.Phys.MSSQL, Datasnap.DBClient,
+  FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  Datasnap.Provider, FireDAC.Comp.DataSet, IWAppForm,  IWApplication,
+
+  IWBaseControl, IWBaseHTMLControl, IWControl, IWCompButton, IWCompMenu,
+  IWVCLComponent, IWBaseLayoutComponent, IWBaseContainerLayout,
+  IWContainerLayout, IWTemplateProcessorHTML, System.Generics.Collections,
+  Vcl.Menus;
+
+type
+  TDM = class(TDMPadrao)
+    FDQUsuario: TFDQuery;
+    DSPUsuario: TDataSetProvider;
+    CDSUsuario: TClientDataSet;
+    CDSUsuarioid_usuario: TLargeintField;
+    CDSUsuarionome: TStringField;
+    CDSUsuariologin: TStringField;
+    CDSUsuariosenha: TStringField;
+    MainMenuSistema: TMainMenu;
+    Cadastros1: TMenuItem;
+    Planos1mn: TMenuItem;
+    Servios1: TMenuItem;
+    Servios2: TMenuItem;
+    Usuario2: TMenuItem;
+    Planos1: TMenuItem;
+    Planos2: TMenuItem;
+    CancelarPlano1: TMenuItem;
+    CancelarPlano2: TMenuItem;
+    Comunicarbito1: TMenuItem;
+    Comunicarbito2: TMenuItem;
+    Outros011: TMenuItem;
+    Outros012: TMenuItem;
+    Outros031: TMenuItem;
+    Outros032: TMenuItem;
+    esteRedireciona1: TMenuItem;
+    procedure Planos1mnClick(Sender: TObject);
+    procedure Servios1Click(Sender: TObject);
+    procedure Servios2Click(Sender: TObject);
+    procedure Usuario2Click(Sender: TObject);
+  private
+    { Private declarations }
+
+  public
+    { Public declarations }
+
+  end;
+
+var
+  DM: TDM;
+
+implementation
+
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses
+   U_IWFormConsultaCliente, U_IWFormConsultaPlano,
+   U_IWFormConsultaServico, U_IWFormConsultaUsuario, U_IWFormIndex,
+   ServerController;
+
+{$R *.dfm}
+
+procedure TDM.Planos1mnClick(Sender: TObject);
+begin
+  inherited;
+  US.ExibePagina(TIWFormConsultaPlano, TIWFormIndex);
+end;
+
+procedure TDM.Servios1Click(Sender: TObject);
+begin
+  inherited;
+  US.ExibePagina(TIWFormConsultaServico, TIWFormIndex);
+end;
+
+procedure TDM.Servios2Click(Sender: TObject);
+begin
+  inherited;
+  US.ExibePagina(TIWFormConsultaCliente, TIWFormIndex);
+end;
+
+procedure TDM.Usuario2Click(Sender: TObject);
+begin
+  inherited;
+  US.ExibePagina(TIWFormConsultaUsuario, TIWFormIndex);
+end;
+
+end.

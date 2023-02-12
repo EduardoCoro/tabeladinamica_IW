@@ -1,0 +1,57 @@
+inherited TLogradoroC: TTLogradoroC
+  PixelsPerInch = 96
+  DesignLeft = 2
+  DesignTop = 2
+  object edCodlog: TIWDBEdit [6]
+    Left = 88
+    Top = 200
+    Width = 200
+    Height = 32
+    StyleRenderOptions.RenderBorder = False
+    Font.Color = clNone
+    Font.Size = 10
+    Font.Style = []
+    FriendlyName = 'edCodlog'
+    SubmitOnAsyncEvent = True
+    AutoEditable = False
+    DataField = 'COD_LOG'
+    DataSource = DSCadastro
+    PasswordPrompt = False
+  end
+  object edNome: TIWDBEdit [7]
+    Left = 88
+    Top = 256
+    Width = 200
+    Height = 32
+    StyleRenderOptions.RenderBorder = False
+    Font.Color = clNone
+    Font.Size = 10
+    Font.Style = []
+    FriendlyName = 'edNome'
+    MaxLength = 100
+    SubmitOnAsyncEvent = True
+    AutoEditable = False
+    DataField = 'NOME'
+    DataSource = DSCadastro
+    PasswordPrompt = False
+  end
+  object cbAtivo: TIWDBCheckBox [8]
+    Left = 96
+    Top = 328
+    Width = 121
+    Height = 21
+    Caption = 'cbAtivo'
+    Editable = True
+    Font.Color = clNone
+    Font.Size = 10
+    Font.Style = []
+    SubmitOnAsyncEvent = True
+    Style = stNormal
+    AutoEditable = False
+    DataField = 'ATIVO'
+    DataSource = DSCadastro
+    FriendlyName = 'cbAtivo'
+    ValueChecked = 'true'
+    ValueUnchecked = 'false'
+  end
+end

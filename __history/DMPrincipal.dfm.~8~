@@ -1,0 +1,97 @@
+inherited TDMPrincipal: TTDMPrincipal
+  PixelsPerInch = 96
+  inherited FDConnection: TFDConnection
+    Connected = True
+  end
+  object qLogradouro: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'Select * from logradouro where nome like :nome')
+    Left = 56
+    Top = 104
+    ParamData = <
+      item
+        Position = 1
+        Name = 'NOME'
+        DataType = ftString
+        ParamType = ptInput
+      end>
+  end
+  object dspLogradouro: TDataSetProvider
+    DataSet = qLogradouro
+    Left = 56
+    Top = 168
+  end
+  object cdsLogradouro: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftString
+        Name = 'NOME'
+        ParamType = ptInput
+      end>
+    ProviderName = 'dspLogradouro'
+    Left = 56
+    Top = 240
+    object cdsLogradouroCOD_LOG: TLargeintField
+      Tag = 15
+      FieldName = 'COD_LOG'
+      Required = True
+    end
+    object cdsLogradouroNOME: TStringField
+      Tag = 65
+      FieldName = 'NOME'
+      Size = 100
+    end
+    object cdsLogradouroATIVO: TBooleanField
+      Tag = 20
+      FieldName = 'ATIVO'
+    end
+  end
+  object qLogradouroC: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'select * From Logradouro where cod_log = :cod_log')
+    Left = 168
+    Top = 104
+    ParamData = <
+      item
+        Position = 1
+        Name = 'COD_LOG'
+        DataType = ftLargeint
+        ParamType = ptInput
+      end>
+  end
+  object dspLogradouroC: TDataSetProvider
+    DataSet = qLogradouroC
+    Left = 168
+    Top = 176
+  end
+  object cdsLogradouroC: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftLargeint
+        Name = 'COD_LOG'
+        ParamType = ptInput
+      end>
+    ProviderName = 'dspLogradouroC'
+    Left = 168
+    Top = 240
+    object cdsLogradouroCCOD_LOG: TLargeintField
+      FieldName = 'COD_LOG'
+      Origin = 'COD_LOG'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object cdsLogradouroCNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Size = 100
+    end
+    object cdsLogradouroCATIVO: TBooleanField
+      FieldName = 'ATIVO'
+      Origin = 'ATIVO'
+    end
+  end
+end

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/05/03 10:41:40.000.955,=D:\FocusWeb\FocusWeb\Unit10.pas</Transaction>
+    <Transaction>2022/05/03 10:41:41.000.129,=D:\FocusWeb\FocusWeb\UserSessionUnit.pas</Transaction>
+    <Transaction>2022/05/03 10:41:41.000.090,=D:\FocusWeb\FocusWeb\ServerController.pas</Transaction>
+    <Transaction>2022/05/03 10:46:58.000.712,=D:\FocusWeb\FocusWeb\Base\ServerController.pas</Transaction>
+    <Transaction>2022/05/03 10:46:58.000.761,=D:\FocusWeb\FocusWeb\Base\UserSessionUnit.pas</Transaction>
+    <Transaction>2022/05/03 10:47:42.000.620,=D:\FocusWeb\FocusWeb\Padrao\U_IWFormPadrao.pas</Transaction>
+    <Transaction>2022/05/03 10:47:42.000.718,=D:\FocusWeb\FocusWeb\Padrao\U_IWFormPadraoConsulta.pas</Transaction>
+    <Transaction>2022/05/03 10:47:42.000.563,=D:\FocusWeb\FocusWeb\Padrao\U_GeradorTableHTML.pas</Transaction>
+    <Transaction>2022/05/03 10:47:42.000.529,=D:\FocusWeb\FocusWeb\Padrao\U_DMPadrao.pas</Transaction>
+    <Transaction>2022/05/03 10:47:42.000.469,=D:\FocusWeb\FocusWeb\Padrao\U__IWFormPadraoCadastro.pas</Transaction>
+    <Transaction>2022/05/03 10:47:42.000.671,=D:\FocusWeb\FocusWeb\Padrao\U_IWFormPadraoCadastro.pas</Transaction>
+    <Transaction>2022/05/03 10:48:08.000.864,=D:\FocusWeb\FocusWeb\Base\U_DM.pas</Transaction>
+    <Transaction>2022/05/03 11:08:13.000.250,=D:\FocusWeb\FocusWeb\Unit1.pas</Transaction>
+    <Transaction>2022/05/03 11:10:46.000.598,D:\FocusWeb\FocusWeb\Saude.dfm=D:\FocusWeb\FocusWeb\Unit1.dfm</Transaction>
+    <Transaction>2022/05/03 11:10:46.000.598,D:\FocusWeb\FocusWeb\Saude.pas=D:\FocusWeb\FocusWeb\Unit1.pas</Transaction>
+    <Transaction>2022/05/03 11:14:01.000.519,=D:\FocusWeb\FocusWeb\Padrao\U_IWFrameLookUp.pas</Transaction>
+    <Transaction>2022/05/03 11:43:34.000.117,=D:\FocusWeb\FocusWeb\Unit1.pas</Transaction>
+    <Transaction>2022/05/03 11:45:40.000.549,D:\FocusWeb\FocusWeb\DMPrincipal.pas=D:\FocusWeb\FocusWeb\Unit1.pas</Transaction>
+    <Transaction>2022/05/03 11:45:40.000.549,D:\FocusWeb\FocusWeb\DMPrincipal.dfm=D:\FocusWeb\FocusWeb\Unit1.dfm</Transaction>
+    <Transaction>2022/05/03 11:58:28.000.604,=D:\FocusWeb\FocusWeb\Unit1.pas</Transaction>
+    <Transaction>2022/05/03 12:00:31.000.135,D:\FocusWeb\FocusWeb\Logradouro.dfm=D:\FocusWeb\FocusWeb\Unit1.dfm</Transaction>
+    <Transaction>2022/05/03 12:00:31.000.135,D:\FocusWeb\FocusWeb\Logradouro.pas=D:\FocusWeb\FocusWeb\Unit1.pas</Transaction>
+    <Transaction>2022/05/03 14:13:33.000.179,=D:\FocusWeb\FocusWeb\Unit1.pas</Transaction>
+    <Transaction>2022/05/03 14:14:11.000.016,D:\FocusWeb\FocusWeb\LogradouroC.dfm=D:\FocusWeb\FocusWeb\Unit1.dfm</Transaction>
+    <Transaction>2022/05/03 14:14:11.000.016,D:\FocusWeb\FocusWeb\LogradouroC.pas=D:\FocusWeb\FocusWeb\Unit1.pas</Transaction>
+    <Transaction>2022/05/03 16:40:19.000.628,D:\FocusWeb\FocusWeb\LogradouroC.pas=</Transaction>
+    <Transaction>2022/05/03 16:40:37.000.044,=D:\FocusWeb\FocusWeb\Unit1.pas</Transaction>
+    <Transaction>2022/05/03 16:41:08.000.823,D:\FocusWeb\FocusWeb\LogradoroC.dfm=D:\FocusWeb\FocusWeb\Unit1.dfm</Transaction>
+    <Transaction>2022/05/03 16:41:08.000.823,D:\FocusWeb\FocusWeb\LogradoroC.pas=D:\FocusWeb\FocusWeb\Unit1.pas</Transaction>
+    <Transaction>2022/05/03 17:30:50.000.208,D:\FocusWeb\FocusWeb\LogradouroC.pas=D:\FocusWeb\FocusWeb\LogradoroC.pas</Transaction>
+    <Transaction>2022/05/03 17:30:50.000.208,D:\FocusWeb\FocusWeb\LogradouroC.dfm=D:\FocusWeb\FocusWeb\LogradoroC.dfm</Transaction>
+    <Transaction>2022/05/04 02:58:54.000.197,=D:\FocusWeb\FocusWeb\Unit1.pas</Transaction>
+    <Transaction>2022/05/04 02:59:29.000.525,D:\FocusWeb\FocusWeb\Unit1.pas=D:\FocusWeb\FocusWeb\LogradouroC.pas</Transaction>
+    <Transaction>2022/05/04 02:59:29.000.525,D:\FocusWeb\FocusWeb\Unit1.dfm=D:\FocusWeb\FocusWeb\LogradouroC.dfm</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Base"/>
+    <File Path="Base\ServerController.pas"/>
+    <File Path="Base\ServerController.dfm"/>
+    <File Path="Base\UserSessionUnit.pas"/>
+    <File Path="Base\UserSessionUnit.dfm"/>
+    <File Path="Base\U_DM.pas"/>
+    <File Path="Base\U_DM.dfm"/>
+    <File Path="Padrao"/>
+    <File Path="Padrao\U_DMPadrao.pas"/>
+    <File Path="Padrao\U_DMPadrao.dfm"/>
+    <File Path="Padrao\U_GeradorTableHTML.pas"/>
+    <File Path="Padrao\U_IWFormPadrao.pas"/>
+    <File Path="Padrao\U_IWFormPadrao.dfm"/>
+    <File Path="Padrao\U_IWFormPadraoCadastro.pas"/>
+    <File Path="Padrao\U_IWFormPadraoCadastro.dfm"/>
+    <File Path="Padrao\U_IWFormPadraoConsulta.pas"/>
+    <File Path="Padrao\U_IWFormPadraoConsulta.dfm"/>
+    <File Path="Padrao\U_IWFrameLookUp.pas"/>
+    <File Path="Saude.pas"/>
+    <File Path="Saude.dfm"/>
+    <File Path="DMPrincipal.pas"/>
+    <File Path="DMPrincipal.dfm"/>
+    <File Path="Logradouro.pas"/>
+    <File Path="Logradouro.dfm"/>
+    <File Path="LogradouroC.pas"/>
+    <File Path="LogradouroC.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>

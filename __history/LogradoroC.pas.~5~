@@ -1,0 +1,43 @@
+unit LogradoroC;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_IWFormPadraoCadastro, Data.DB,
+  Vcl.Menus, IWVCLComponent, IWBaseLayoutComponent, IWBaseContainerLayout,
+  IWContainerLayout, IWTemplateProcessorHTML, IWCompEdit, IWCompText,
+  IWCompMenu, IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl, IWControl,
+  IWCompButton, IWDBStdCtrls;
+
+type
+  TTLogradoroC = class(TIWFormPadraoCadastro)
+    edCodlog: TIWDBEdit;
+    edNome: TIWDBEdit;
+    procedure IWAppFormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TLogradoroC: TTLogradoroC;
+
+implementation
+
+{$R *.dfm}
+
+uses DMPrincipal, ServerController;
+
+procedure TTLogradoroC.IWAppFormCreate(Sender: TObject);
+begin
+  //Preencher essa variáveis de inicialização.
+  TituloPagina:='Cadastro de Logradouro';
+  CDSCadastro:=US.DMPrincipal.cdsLogradouroC;
+  DSCadastro.DataSet:=US.DMPrincipal.cdsLogradouroC;
+  inherited;
+
+end;
+
+end.

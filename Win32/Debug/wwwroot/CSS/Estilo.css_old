@@ -1,0 +1,281 @@
+
+.TIWBUTTON {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: White;
+
+    border:1px solid #104E8B;
+    background-color: transparent;
+    background-image: url('../Img/FundoVerde.jpg');
+    background-repeat: no-repeat;
+
+     -moz-border-radius:10px;
+        -webkit-border-radius: 5px;/*safari*/
+	-khtml-border-radius: 5px;/*safari()*/
+	-moz-border-radius: 5px;/*mozilla complacentes(FF,Moz,NetScap)*/
+	-opera-border-radius: 5px;
+	-border-radius: 5px;/*CSS3 ainda não foi lançado que eu saiba hehehe*/
+}
+
+.TIWBUTTON:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: red;
+	background-color: #6E7B8B;
+	border:1px solid #68838B;
+
+}
+
+.TIWEDIT
+{
+    font-family: verdana,helvetica;
+    font-size: 11px;
+    font-weight: normal;
+    color: #5E5E5E;
+    border-width: 2px;
+    border-style: groove;
+    border-color: #F4F4F4;
+	background-color: White;
+    text-indent: 5px;
+    -moz-box-shadow: 1px 1px 1px #C7C7C7;
+    -webkit-box-shadow: 1px 1px 1px #C7C7C7;
+    box-shadow: 1px 1px 1px #C7C7C7;
+
+    border-radius: 5px 5px;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+
+}
+
+
+.TIWDBEDIT
+{
+    font-family: verdana,helvetica;
+    font-size: 11px;
+    font-weight: normal;
+    color: #5E5E5E;
+    text-indent: 4px;
+    background-color: white;
+    text-indent: 5px;
+
+    -moz-box-shadow: 1px 1px 1px #C7C7C7;
+    -webkit-box-shadow: 1px 1px 1px #C7C7C7;
+    box-shadow: 1px 1px 1px #C7C7C7;
+
+    border-radius: 5px 5px;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+}
+
+
+.TIWLABEL
+{
+    font-family: verdana,helvetica;
+    font-size: 11px;
+    font-weight: bold;
+    color: #5E5E5E;
+    text-align: left;
+}
+
+.TIWDBTEXT
+{
+    font-family: verdana,helvetica;
+    font-size: 18px;
+    font-weight: normal;
+    border-width: 0px;
+    border-style: groove;
+    border-color: #F4F4F4;
+    color: #5E5E5E;
+    padding-left : 04px;
+    padding-bottom : 04px;
+    padding-top : 04px;
+    padding-right : 04px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-right-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
+}
+
+.TIWDBMEMO
+{
+    font-family: verdana,helvetica;
+    font-size: 11px;
+    font-weight: normal;
+    border-width: 1px;
+    border-style: groove;
+    border-color: #F4F4F4;
+    color: #5E5E5E;	
+	background-color: White;
+    padding-left : 04px;
+    padding-bottom : 12px;
+    padding-top : 12px;
+    padding-right : 04px;
+
+    text-indent: 5px;
+     -moz-box-shadow: 1px 1px 1px #C7C7C7;
+    -webkit-box-shadow: 1px 1px 1px #C7C7C7;
+    box-shadow: 1px 1px 1px #C7C7C7;
+
+    border-radius: 5px 5px;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+}
+
+.TIWMEMO
+{
+    font-family: verdana,helvetica;
+    font-size: 11px;
+    font-weight: normal;
+    border-style: groove;
+    border-color: #F4F4F4;
+    color: #5E5E5E;	
+	background-color: White;
+    padding-left : 04px;
+    padding-bottom : 12px;
+    padding-top : 12px;
+    padding-right : 04px;
+
+    text-indent: 5px;
+     -moz-box-shadow: 1px 1px 1px #C7C7C7;
+    -webkit-box-shadow: 1px 1px 1px #C7C7C7;
+    box-shadow: 1px 1px 1px #C7C7C7;
+
+    border-radius: 5px 5px;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+}
+
+.TIWCHECKBOX
+{
+    font-family: verdana,helvetica;
+    font-size: 11px;
+    font-weight: bold;
+    color: #5E5E5E;
+}
+
+.TIWDBCHECKBOX
+{
+    font-family: verdana,helvetica;
+    font-size: 11px;
+    font-weight: bold;
+    color: #5E5E5E;	
+}
+
+.TIWCOMBOBOX
+{
+    font-family: verdana,helvetica;
+    font-size: 11px;
+    font-weight: normal;
+    color: #5E5E5E;
+    background-color: White;
+    text-indent: 5px;
+     -moz-box-shadow: 1px 1px 1px #C7C7C7;
+    -webkit-box-shadow: 1px 1px 1px #C7C7C7;
+    box-shadow: 1px 1px 1px #C7C7C7;
+
+    border-radius: 5px 5px;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+}
+
+.TIWDBCOMBOBOX
+{
+    font-family: verdana,helvetica;
+    font-size: 11px;
+    font-weight: normal;
+    color: #5E5E5E;
+	background-color: White;
+    text-indent: 5px;
+     -moz-box-shadow: 1px 1px 1px #C7C7C7;
+    -webkit-box-shadow: 1px 1px 1px #C7C7C7;
+    box-shadow: 1px 1px 1px #C7C7C7;
+
+    border-radius: 5px 5px;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+}
+
+.TIWDBLOOKUPCOMBOBOX
+{
+    font-family: verdana,helvetica;
+    font-size: 11px;
+    font-weight: normal;
+    color: #5E5E5E;
+	background-color: White;
+    text-indent: 5px;
+     -moz-box-shadow: 1px 1px 1px #C7C7C7;
+    -webkit-box-shadow: 1px 1px 1px #C7C7C7;
+    box-shadow: 1px 1px 1px #C7C7C7;
+
+    border-radius: 5px 5px;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+}
+
+.TIWRADIOGROUP
+{
+    font-family: verdana,helvetica;
+    font-size: 11px;
+    font-weight: bold;
+    color: #5E5E5E;
+    border-width: 1px;
+    border-style: groove;
+    border-color: #F4F4F4;
+    text-indent: 5px;
+    word-spacing:10px;
+    text-indent: 5px;
+    border-top-width:10px;
+}
+
+.TIWDBRADIOGROUP
+{
+    font-family: verdana,helvetica;
+    font-size: 11px;
+    font-weight: bold;
+    color: #5E5E5E;
+    border-width: 1px;
+    border-style: outset;
+    border-color: #F4F4F4;
+    text-indent: 5px;
+    word-spacing:10px;
+    border-top-width:10px;
+}
+
+.TIWRADIOBUTTON
+{
+    font-family: verdana,helvetica;
+    font-size: 11px;
+    font-weight: bold;
+    color: #5E5E5E;
+    border-width: 0px;
+    border-style: outset;
+    border-color: #F4F4F4;
+}
+
+.TIWCALENDAR
+{
+    font-family: verdana,helvetica;
+    font-size: 11px;
+    font-weight: normal;
+    color: #5E5E5E;
+}
+
+.TIWGRID{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+	color: White;
+    border-width: 1px;
+    border-right: 1px solid #E3E3E3;
+    border-bottom: 1px solid #E3E3E3;
+}
+
+
+
+
+
+
+   /*  Cores...
+     http://www.somacon.com/p142.php
+   */

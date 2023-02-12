@@ -1,0 +1,19 @@
+inherited TLogradoroC: TTLogradoroC
+  PixelsPerInch = 96
+  DesignLeft = 2
+  DesignTop = 2
+  object IWDBEdit1: TIWDBEdit [6]
+    Left = 112
+    Top = 192
+    Width = 200
+    Height = 32
+    StyleRenderOptions.RenderBorder = False
+    Font.Color = clNone
+    Font.Size = 10
+    Font.Style = []
+    FriendlyName = 'IWDBEdit1'
+    SubmitOnAsyncEvent = True
+    AutoEditable = False
+    PasswordPrompt = False
+  end
+end

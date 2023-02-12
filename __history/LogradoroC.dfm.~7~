@@ -1,0 +1,5 @@
+inherited TLogradouroC: TTLogradouroC
+  PixelsPerInch = 96
+  DesignLeft = 2
+  DesignTop = 2
+end

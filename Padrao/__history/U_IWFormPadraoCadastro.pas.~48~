@@ -1,0 +1,99 @@
+unit U_IWFormPadraoCadastro;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_IWFormPadrao, IWVCLBaseControl,
+  IWBaseControl, IWBaseHTMLControl, IWControl, IWCompButton, IWCompMenu,
+  IWVCLComponent, IWBaseLayoutComponent, IWBaseContainerLayout,
+  IWContainerLayout, IWTemplateProcessorHTML, Vcl.Menus, Datasnap.DBClient,
+  IWCompText, IWAppForm, Data.DB, IWCompEdit;
+
+type
+  TIWFormPadraoCadastro = class(TIWFormPadrao)
+    IWButtonSalvar: TIWButton;
+    IWButtonCancelar: TIWButton;
+    DSCadastro: TDataSource;
+    procedure IWButtonSalvarAsyncClick(Sender: TObject;
+      EventParams: TStringList);
+    procedure IWButtonCancelarAsyncClick(Sender: TObject;
+      EventParams: TStringList);
+    procedure IWAppFormCreate(Sender: TObject);
+    procedure IWButtonVoltarAsyncClick(Sender: TObject;
+      EventParams: TStringList);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    CDSCadastro : TClientDataSet;
+    TituloPagina : string;
+    FromCadastro, FormRetorno : TIWAppFormClass;
+  end;
+
+var
+  IWFormPadraoCadastro: TIWFormPadraoCadastro;
+
+implementation
+
+{$R *.dfm}
+
+uses U_DM, ServerController;
+
+procedure TIWFormPadraoCadastro.IWAppFormCreate(Sender: TObject);
+begin
+  inherited;
+  DSCadastro:=TDataSource.Create(Self);
+  DSCadastro.DataSet:=CDSCadastro;
+  Caption:=TituloPagina;
+
+  CDSCadastro.Close;
+  CDSCadastro.Params[0].AsLargeInt:=US.GLBID;
+  CDSCadastro.Open;
+  if US.GLBCRUD = 'I' then
+     begin
+        CDSCadastro.Append;
+        CDSCadastro.Fields[0].AsLargeInt:=
+           US.DM.RetornaID(CDSCadastro.Fields[0].FieldName);
+     end;
+end;
+
+procedure TIWFormPadraoCadastro.IWButtonCancelarAsyncClick(Sender: TObject;
+  EventParams: TStringList);
+begin
+  inherited;
+  CDSCadastro.Close;
+  US.ExibePaginaRetorno;
+end;
+
+procedure TIWFormPadraoCadastro.IWButtonSalvarAsyncClick(Sender: TObject;
+  EventParams: TStringList);
+begin
+  inherited;
+  US.GLBMsgErro:='';
+   if US.GLBCRUD = 'E' then
+      begin
+         CDSCadastro.Delete;
+      end;
+
+   CDSCadastro.ApplyUpdates(0);
+
+   if US.GLBMsgErro <> '' then
+      begin
+         ShowMessage(US.GLBMsgErro);
+      end
+   else
+      begin
+         US.ExibePaginaRetorno;
+      end;
+end;
+
+procedure TIWFormPadraoCadastro.IWButtonVoltarAsyncClick(Sender: TObject;
+  EventParams: TStringList);
+begin
+  inherited;
+  US.ExibePaginaRetorno;
+end;
+
+end.

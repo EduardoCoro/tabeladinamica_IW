@@ -1,0 +1,64 @@
+unit Logradouro;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_IWFormPadraoConsulta, Data.DB,
+  Vcl.Menus, IWVCLComponent, IWBaseLayoutComponent, IWBaseContainerLayout,
+  IWContainerLayout, IWTemplateProcessorHTML, IWVCLBaseContainer, IWContainer,
+  IWHTMLContainer, IWHTML40Container, IWRegion, IWCompEdit, IWCompText,
+  IWCompMenu, IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl, IWControl,
+  IWCompButton;
+
+type
+  TTLogradouro = class(TIWFormPadraoConsulta)
+    edNome: TIWEdit;
+    procedure IWAppFormCreate(Sender: TObject);
+    procedure IWAppFormRender(Sender: TObject);
+    procedure IWButtonPesquisarAsyncClick(Sender: TObject;
+      EventParams: TStringList);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TLogradouro: TTLogradouro;
+
+implementation
+
+{$R *.dfm}
+
+uses DMPrincipal, ServerController, LogradouroC;
+
+procedure TTLogradouro.IWAppFormCreate(Sender: TObject);
+begin
+  //Preencher essa variáveis de inicialização.
+  TituloPagina:='Consulta de Logradouro';
+  CDSConsulta:=US.DMprincipal.cdsLogradouro;
+  FromCadastro:=Ttlo;
+  FormRetorno:=TTLogradouroC;
+  QTDLinhaPagina:=10;
+  inherited;
+
+end;
+
+procedure TTLogradouro.IWAppFormRender(Sender: TObject);
+begin
+  MenuReal:=US.DM.MainMenuSistema;
+  inherited;
+
+end;
+
+procedure TTLogradouro.IWButtonPesquisarAsyncClick(Sender: TObject;
+  EventParams: TStringList);
+begin
+  //Preencher parâmetros da Query caso exista.
+  CDSConsulta.Params[0].AsString:=edNome.Text + '%';
+  inherited;
+
+end;
+
+end.

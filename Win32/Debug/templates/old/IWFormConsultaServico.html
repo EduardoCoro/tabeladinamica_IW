@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+  <title>Consulta Servico</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../css/Estilo.css" rel="stylesheet">
+  <script src="../../../js/jquery.min.js"></script>
+  <script src="../../../js/bootstrap.min.js"></script>  
+</head>
+  
+<body>
+    <div align="center"> 
+        <div align="left" style="width: 98%; min-width: 320px; height: 100px; background: #f5f5f5;">
+           <object type="text/html" data="./cabecalho.html" 
+		           style="width: 100%; min-width: 320px; height: 120px; background: #f5f5f5;">
+		   </object>
+	    </div> 
+
+      <div align="center">	 
+         <div style="width: 98%; min-width: 320px; height: auto; margin-top: 3px;"> 
+		      {%IWTextMenuNav%}
+		 </div>  
+      </div> 
+
+	  
+	  <DIV class="container-fluid" style="text-align: left; font-size: 20px; font-weight: bold; height: 50px">
+	       >> CONSULTA DE SERVIÇO
+	  </DIV>
+
+      <div class="well well-sm" style="width: 98%; min-width: 320px; margin-top: 0px;">
+	      {%IWButtonPesquisar%}{%IWButtonIncluir%}{%IWButtonAlterar%}
+		  {%IWButtonExcluir%}{%IWButtonImprimirForm%}{%IWButtonVoltar%} 		  
+      </div>
+	  
+	  <div class="table-responsive" style="width: 98%; min-width: 320px; margin-top: 0px;">  
+        <table class="table">
+			<thead><tr><th>Parte do Nome</th></tr></thead>			
+			<tbody>			
+			  <tr><td>{%IWRegionParametros.IWEditNomeParcial%}</td></tr>			  
+			</tbody>
+        </table> 
+	  </div>
+	
+	  <div style="width: 98%; min-width: 320px; margin-top: 0px;"> {%IWTextGridConsulta%} </div>
+	
+      <div class="well well-sm" style="width: 98%;  min-width: 320px; margin-top: -15px;">
+		   {%IWButtonPrimeiro%}{%IWButtonPaginaAnterior%}{%IWButtonProximaPagina%}{%IWButtonUltimo%}
+      </div>
+	  
+	  <div style="width: 98%; min-width: 320px; height: 80px; background: #f5f5f5;">
+           <object type="text/html" data="./rodape.html" 
+		           style="width: 100%; min-width: 320px; height: 80px; background: #f5f5f5;">
+		   </object>
+	  </div> 
+	  
+    </div>  
+</body>
+</html>

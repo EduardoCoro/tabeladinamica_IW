@@ -1,0 +1,232 @@
+unit U_IWFormPadraoConsulta;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_IWFormPadrao, IWCompGrids, IWDBGrids,
+  IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl, IWControl, IWCompButton,
+  IWCompMenu, IWVCLComponent, IWBaseLayoutComponent, IWBaseContainerLayout,
+  IWContainerLayout, IWTemplateProcessorHTML, Vcl.Menus, Datasnap.DBClient,
+  IWAppForm, Data.DB, IWCompText, IWCompEdit, IWjQGrid, ServerController,
+
+  U_GeradorTableHTML, IWVCLBaseContainer, IWContainer, IWHTMLContainer,
+  IWHTML40Container, IWRegion, IWHTMLTag;
+
+type
+  TIWFormPadraoConsulta = class(TIWFormPadrao)
+    IWButtonPesquisar: TIWButton;
+    IWButtonIncluir: TIWButton;
+    IWButtonAlterar: TIWButton;
+    IWButtonExcluir: TIWButton;
+    IWButtonImprimir: TIWButton;
+    DSConsulta: TDataSource;
+    IWButtonPrimeiro: TIWButton;
+    IWButtonProximaPagina: TIWButton;
+    IWButtonPaginaAnterior: TIWButton;
+    IWButtonUltimo: TIWButton;
+    IWTextGridConsulta: TIWText;
+    IWRegionParametros: TIWRegion;
+    procedure IWButtonIncluirClick(Sender: TObject);
+    procedure IWButtonAlterarClick(Sender: TObject);
+    procedure IWButtonExcluirClick(Sender: TObject);
+    procedure IWAppFormCreate(Sender: TObject);
+    procedure IWButtonPesquisarAsyncClick(Sender: TObject;
+      EventParams: TStringList);
+    procedure IWAppFormRender(Sender: TObject);
+    procedure IWButtonProximaPaginaAsyncClick(Sender: TObject;
+      EventParams: TStringList);
+    procedure IWButtonUltimoAsyncClick(Sender: TObject;
+      EventParams: TStringList);
+    procedure IWButtonPrimeiroAsyncClick(Sender: TObject;
+      EventParams: TStringList);
+    procedure IWButtonPaginaAnteriorAsyncClick(Sender: TObject;
+      EventParams: TStringList);
+    procedure IWButtonVoltarAsyncClick(Sender: TObject;
+      EventParams: TStringList);
+  private
+    procedure PegarID(EventParams: TStringList);
+    { Private declarations }
+  public
+    { Public declarations }
+    CDSConsulta : TClientDataSet;
+    TituloPagina : string;
+    FromCadastro, FormRetorno : TIWAppFormClass;
+    QTDLinhaPagina : integer;
+    REgSelecionado : int64;
+    GeradorTableHTML : TGeradorTableHTML;
+    procedure DefinirCaptionBotoesNavegar;
+    procedure AjustarControleRegionParametros;
+  end;
+
+var
+  IWFormPadraoConsulta: TIWFormPadraoConsulta;
+
+implementation
+
+{$R *.dfm}
+
+procedure TIWFormPadraoConsulta.PegarID(EventParams: TStringList);
+var
+  sl: TStringList;
+  s : string;
+begin
+   sl := TStringList.Create;
+   sl.StrictDelimiter := True;
+   sl.CommaText := EventParams.Values['Params'];
+   US.GLBID:=sl.ValueFromIndex[0].ToInt64;
+   sl.Free;
+end;
+
+procedure TIWFormPadraoConsulta.DefinirCaptionBotoesNavegar;
+begin
+   if CDSConsulta.Active then
+     begin
+        if CDSConsulta.RecordCount <= QTDLinhaPagina then
+           begin
+              IWButtonPrimeiro.Visible:=False;
+              IWButtonPaginaAnterior.Visible:=False;
+              IWButtonProximaPagina.Visible:=False;
+              IWButtonUltimo.Visible:=False;
+           end
+        else
+           begin
+              IWButtonPrimeiro.Visible:=True;
+              IWButtonPaginaAnterior.Visible:=True;
+              IWButtonProximaPagina.Visible:=True;
+              IWButtonUltimo.Visible:=True;
+           end
+     end;
+   IWButtonPrimeiro.RepaintControl;
+   IWButtonPaginaAnterior.RepaintControl;
+   IWButtonProximaPagina.RepaintControl;
+   IWButtonUltimo.RepaintControl;
+
+   IWButtonProximaPagina.Caption:='Próxima ' +
+                             '  ( + ' + QTDLinhaPagina.ToString + ' ) ' + '-->';
+   IWButtonPaginaAnterior.Caption:='<-- Anterior' +
+                             '  ( - ' + QTDLinhaPagina.ToString + ' ) ';
+end;
+
+procedure TIWFormPadraoConsulta.IWAppFormCreate(Sender: TObject);
+begin
+  inherited;
+  WebApplication.RegisterCallBack('PegarID', PegarID);
+  DSConsulta.DataSet:=CDSConsulta;
+  Caption:=TituloPagina;
+  GeradorTableHTML:=TGeradorTableHTML.Create;
+  ExtraHeader.Text:=GeradorTableHTML.CriarJSTabela('CDSConsulta');
+  AjustarControleRegionParametros
+end;
+
+procedure TIWFormPadraoConsulta.IWAppFormRender(Sender: TObject);
+begin
+  inherited;
+  DefinirCaptionBotoesNavegar;
+  US.PreencherParametrosConsulta(IWRegionParametros);
+end;
+
+procedure TIWFormPadraoConsulta.IWButtonAlterarClick(Sender: TObject);
+begin
+  inherited;
+  US.GLBCRUD:='A';
+  US.ExibePagina(FromCadastro, FormRetorno);
+  US.SalvarParametrosConsulta(IWRegionParametros);
+end;
+
+procedure TIWFormPadraoConsulta.IWButtonExcluirClick(Sender: TObject);
+begin
+  inherited;
+  US.GLBCRUD:='E';
+  US.ExibePagina(FromCadastro, FormRetorno);
+  US.SalvarParametrosConsulta(IWRegionParametros);
+end;
+
+procedure TIWFormPadraoConsulta.IWButtonIncluirClick(Sender: TObject);
+begin
+  inherited;
+  US.GLBID:=-1;
+  US.GLBCRUD:='I';
+  US.ExibePagina(FromCadastro, FormRetorno);
+  US.SalvarParametrosConsulta(IWRegionParametros);
+end;
+
+procedure TIWFormPadraoConsulta.IWButtonPaginaAnteriorAsyncClick(
+  Sender: TObject; EventParams: TStringList);
+begin
+  inherited;
+  if CDSConsulta.Bof then Exit;
+
+  IWTextGridConsulta.Text:=
+     GeradorTableHTML.GerarTableHTML('CDSConsulta', CDSConsulta, QTDLinhaPagina, 'ANTERIOR');
+  IWTextGridConsulta.Align:=alClient;
+  IWTextGridConsulta.RepaintControl;
+end;
+
+procedure TIWFormPadraoConsulta.IWButtonPesquisarAsyncClick(Sender: TObject;
+  EventParams: TStringList);
+begin
+  inherited;
+  CDSConsulta.Close;
+  CDSConsulta.Open;
+  IWTextGridConsulta.Text:=
+     GeradorTableHTML.GerarTableHTML('CDSConsulta', CDSConsulta, QTDLinhaPagina, 'INICIO');
+  IWTextGridConsulta.Align:=alClient;
+  IWTextGridConsulta.RepaintControl;
+  DefinirCaptionBotoesNavegar;
+end;
+
+procedure TIWFormPadraoConsulta.IWButtonPrimeiroAsyncClick(Sender: TObject;
+  EventParams: TStringList);
+begin
+  inherited;
+  IWTextGridConsulta.Text:=
+     GeradorTableHTML.GerarTableHTML('CDSConsulta', CDSConsulta, QTDLinhaPagina, 'INICIO');
+  IWTextGridConsulta.Align:=alClient;
+  IWTextGridConsulta.RepaintControl;
+end;
+
+procedure TIWFormPadraoConsulta.IWButtonProximaPaginaAsyncClick(Sender: TObject;
+  EventParams: TStringList);
+begin
+  inherited;
+  if CDSConsulta.Eof then Exit;
+
+  IWTextGridConsulta.Text:=
+     GeradorTableHTML.GerarTableHTML('CDSConsulta', CDSConsulta, QTDLinhaPagina, 'PROXIMO');
+  IWTextGridConsulta.Align:=alClient;
+  IWTextGridConsulta.RepaintControl;
+end;
+
+procedure TIWFormPadraoConsulta.IWButtonUltimoAsyncClick(Sender: TObject;
+  EventParams: TStringList);
+begin
+  inherited;
+  IWTextGridConsulta.Text:=
+     GeradorTableHTML.GerarTableHTML('CDSConsulta', CDSConsulta, QTDLinhaPagina, 'FINAL');
+  IWTextGridConsulta.Align:=alClient;
+  IWTextGridConsulta.RepaintControl;
+end;
+
+procedure TIWFormPadraoConsulta.IWButtonVoltarAsyncClick(Sender: TObject;
+  EventParams: TStringList);
+begin
+  inherited;
+  US.ExibePaginaRetorno;
+end;
+
+procedure TIWFormPadraoConsulta.AjustarControleRegionParametros;
+var
+  i : integer;
+begin
+   for i := 0 to IWRegionParametros.ControlCount - 1 do
+      begin
+         if IWRegionParametros.Controls[i] is TIWEdit then
+            begin
+               TIWEdit(IWRegionParametros.Controls[i]).StyleRenderOptions.RenderPosition:=False;
+            end;
+      end;
+
+end;
+
+end.

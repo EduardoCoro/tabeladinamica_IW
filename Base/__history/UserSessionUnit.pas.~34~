@@ -1,0 +1,154 @@
+unit UserSessionUnit;
+
+{
+  This is a DataModule where you can add components or declare fields that are specific to 
+  ONE user. Instead of creating global variables, it is better to use this datamodule. You can then
+  access the it using UserSession.
+}
+interface
+
+uses
+  IWUserSessionBase, SysUtils, IWAppForm, Datasnap.DBClient,Data.DB,
+  System.Generics.Collections, IWRegion,
+
+  System.Classes, U_DM;
+
+type
+  TIWUserSession = class(TIWUserSessionBase)
+    procedure IWUserSessionBaseCreate(Sender: TObject);
+  private
+    { Private declarations }
+
+  public
+  { Public declarations }
+    GLBID : integer;
+    GLBCRUD : string;
+    GLBMsgErro : string;
+    GLBNomeRelatorio : string;
+    GLBIDConsulta : int64;
+    GLBDescritivoConsulta : string;
+    TotalRegPaginacao : integer;
+    SobraPaginacao : integer;
+    PosicaoFinal, PosicaoInicial : integer;
+
+    DM : TDM;
+    DMCrud : TDMCrud;
+    ListaPaginasRetorno : TList<TIWAppFormClass>;
+
+    procedure ExibePagina(Pagina, PaginaRetorno : TIWAppFormClass);
+    procedure ExibePaginaRetorno;
+    procedure AtribuirCSS;
+    procedure SalvarParametrosConsulta(Region : TIWRegion);
+    procedure PreencherParametrosConsulta(Region : TIWRegion);
+    procedure ConfigFrameLookUp(Frame : TIWFrameLookUp;
+                                CDSLookUp : TClientDataSet);
+  end;
+
+implementation
+
+uses
+  IWApplication, IWControl, IWCompEdit;
+
+{$R *.dfm}
+
+procedure TIWUserSession.ConfigFrameLookUp(
+                                Frame : TIWFrameLookUp;
+                                CDSLookUp : TClientDataSet);
+begin
+   Frame.DataSourceFrame.DataSet:=CDSLookUp;
+end;
+
+procedure TIWUserSession.ExibePagina(Pagina, PaginaRetorno: TIWAppFormClass);
+begin
+   if (TIWAppForm(gGetWebApplicationThreadVar.ActiveForm).Name) = (Pagina.ClassName) then
+      Exit;
+
+   ListaPaginasRetorno.Add(PaginaRetorno);
+
+   TIWAppForm(gGetWebApplicationThreadVar.ActiveForm).Release;
+   Pagina.Create(gGetWebApplicationThreadVar).Show;
+end;
+
+procedure TIWUserSession.ExibePaginaRetorno;
+Var
+  PaginaRetorno: TIWAppFormClass;
+begin
+   PaginaRetorno := ListaPaginasRetorno.Last;
+   ListaPaginasRetorno.Remove(PaginaRetorno);
+   TIWAppForm(gGetWebApplicationThreadVar.ActiveForm).Release;
+   PaginaRetorno.Create(gGetWebApplicationThreadVar).Show;
+end;
+
+procedure TIWUserSession.IWUserSessionBaseCreate(Sender: TObject);
+begin
+   ListaPaginasRetorno := TList<TIWAppFormClass>.Create;
+   DM:=TDM.Create(Self);
+   DMCrud:=TDMCrud.Create(Self);
+end;
+
+procedure TIWUserSession.AtribuirCSS;
+var
+  i : Integer;
+begin
+   for i := 0 to TIWAppForm(gGetWebApplicationThreadVar.ActiveForm).ComponentCount - 1 do
+      begin
+         if (TIWAppForm(gGetWebApplicationThreadVar.ActiveForm).Components[i] is
+            TIWCustomControl) then
+            begin
+               if TIWCustomControl(TIWAppForm(gGetWebApplicationThreadVar.ActiveForm).Components[i]).Css = '' then
+                  begin
+                    TIWCustomControl(TIWAppForm(gGetWebApplicationThreadVar.ActiveForm).Components[i]).StyleRenderOptions.RenderSize:=False;
+                    TIWCustomControl(TIWAppForm(gGetWebApplicationThreadVar.ActiveForm).Components[i]).Font.Enabled := False;
+                    TIWCustomControl(TIWAppForm(gGetWebApplicationThreadVar.ActiveForm).Components[i]).Css :=
+                      UpperCase(TIWAppForm(gGetWebApplicationThreadVar.ActiveForm).Components[i].ClassName);
+                  end;
+            end;
+      end;
+end;
+
+procedure TIWUserSession.SalvarParametrosConsulta(Region : TIWRegion);
+var
+  i, n : Integer;
+begin
+   TClientDataSet(DM.CDSParametrosConsulta).EmptyDataSet;
+   n:=0;
+   for i := 0 to TIWRegion(Region).ControlCount - 1 do
+      begin
+         n:=n + 1;
+         TClientDataSet(DM.CDSParametrosConsulta).Append;
+         TClientDataSet(DM.CDSParametrosConsulta).FieldByName('ID').AsLargeInt:=n;
+         TClientDataSet(DM.CDSParametrosConsulta).FieldByName('NomeForm').AsString:=
+                TIWAppForm(gGetWebApplicationThreadVar.ActiveForm).Name;
+         if TIWRegion(Region).Controls[i] is TIWEdit then
+            begin
+              TClientDataSet(DM.CDSParametrosConsulta).FieldByName('NomeControle').AsString:=
+                  TIWEdit(TIWRegion(Region).Controls[i]).Name;
+              TClientDataSet(DM.CDSParametrosConsulta).FieldByName('TipoControle').AsString:=
+                  TIWEdit(TIWRegion(Region).Controls[i]).ClassName;
+              TClientDataSet(DM.CDSParametrosConsulta).FieldByName('ValorControle').AsString:=
+                  TIWEdit(TIWRegion(Region).Controls[i]).Text;
+            end;
+         TClientDataSet(DM.CDSParametrosConsulta).Post;
+      end;
+end;
+
+procedure TIWUserSession.PreencherParametrosConsulta(Region : TIWRegion);
+var
+  i : Integer;
+begin
+   if TClientDataSet(DM.CDSParametrosConsulta).RecordCount = 0 then
+      Exit;
+   for i := 0 to TIWRegion(Region).ControlCount - 1 do
+      begin
+         if TIWRegion(Region).Controls[i] is TIWEdit then
+            begin
+               if TClientDataSet(DM.CDSParametrosConsulta).Locate('NomeControle',
+                  TIWEdit(TIWRegion(Region).Controls[i]).Name, []) then
+                  TIWEdit(TIWRegion(Region).Controls[i]).Text:=
+                    TClientDataSet(DM.CDSParametrosConsulta).FieldByName('ValorControle').AsString
+            end;
+      end;
+   //TClientDataSet(DM.CDSParametrosConsulta).EmptyDataSet;
+end;
+
+end.

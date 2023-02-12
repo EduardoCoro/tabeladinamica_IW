@@ -1,0 +1,202 @@
+inherited IWFormPadraoConsulta: TIWFormPadraoConsulta
+  PixelsPerInch = 96
+  DesignLeft = 2
+  DesignTop = 2
+  inherited IWButtonVoltar: TIWButton
+    TabOrder = 5
+    OnAsyncClick = IWButtonVoltarAsyncClick
+  end
+  inherited IWEDITID: TIWEdit
+    Left = 370
+    Top = 26
+    TabOrder = 10
+    ExplicitLeft = 370
+    ExplicitTop = 26
+  end
+  object IWButtonPesquisar: TIWButton [4]
+    Left = 70
+    Top = 73
+    Width = 120
+    Height = 35
+    Css = 'btn btn-success'
+    Caption = 'Pesquisar'
+    Color = clBtnFace
+    Font.Color = clNone
+    Font.Size = 10
+    Font.Style = []
+    FriendlyName = 'IWButtonPesquisar'
+    OnAsyncClick = IWButtonPesquisarAsyncClick
+  end
+  object IWButtonIncluir: TIWButton [5]
+    Left = 256
+    Top = 80
+    Width = 120
+    Height = 35
+    Css = 'btn btn-primary'
+    Caption = 'Incluir'
+    Color = clBtnFace
+    Font.Color = clNone
+    Font.Size = 10
+    Font.Style = []
+    FriendlyName = 'IWButtonPesquisar'
+    TabOrder = 1
+    OnClick = IWButtonIncluirClick
+  end
+  object IWButtonAlterar: TIWButton [6]
+    Left = 389
+    Top = 80
+    Width = 120
+    Height = 35
+    Css = 'btn btn-primary'
+    Caption = 'Alterar'
+    Color = clBtnFace
+    Font.Color = clNone
+    Font.Size = 10
+    Font.Style = []
+    FriendlyName = 'IWButtonPesquisar'
+    TabOrder = 2
+    OnClick = IWButtonAlterarClick
+  end
+  object IWButtonExcluir: TIWButton [7]
+    Left = 522
+    Top = 80
+    Width = 120
+    Height = 35
+    Css = 'btn btn-primary'
+    Caption = 'Excluir'
+    Color = clBtnFace
+    Font.Color = clNone
+    Font.Size = 10
+    Font.Style = []
+    FriendlyName = 'IWButtonPesquisar'
+    TabOrder = 3
+    OnClick = IWButtonExcluirClick
+  end
+  object IWButtonImprimir: TIWButton [8]
+    Left = 655
+    Top = 80
+    Width = 120
+    Height = 35
+    Css = 'btn btn-primary'
+    Caption = 'Imprimir'
+    Color = clBtnFace
+    Font.Color = clNone
+    Font.Size = 10
+    Font.Style = []
+    FriendlyName = 'IWButtonPesquisar'
+    TabOrder = 4
+  end
+  object IWButtonPrimeiro: TIWButton [9]
+    Left = 17
+    Top = 136
+    Width = 180
+    Height = 30
+    Visible = False
+    Css = 'btn btn-link'
+    Caption = '<<-- P'#225'g. Inicial'
+    Color = clBtnFace
+    Font.Color = clNone
+    Font.Enabled = False
+    Font.Size = 10
+    Font.Style = []
+    FriendlyName = 'IWButtonPrimeiro'
+    TabOrder = 6
+    OnAsyncClick = IWButtonPrimeiroAsyncClick
+  end
+  object IWButtonProximaPagina: TIWButton [10]
+    Left = 389
+    Top = 136
+    Width = 180
+    Height = 30
+    Visible = False
+    Css = 'btn btn-link'
+    Caption = 'Pr'#243'xima P'#225'gina -->'
+    Color = clBtnFace
+    Font.Color = clNone
+    Font.Enabled = False
+    Font.Size = 10
+    Font.Style = []
+    FriendlyName = 'IWButtonPrimeiro'
+    TabOrder = 7
+    OnAsyncClick = IWButtonProximaPaginaAsyncClick
+  end
+  object IWButtonPaginaAnterior: TIWButton [11]
+    Left = 203
+    Top = 136
+    Width = 180
+    Height = 30
+    Visible = False
+    Css = 'btn btn-link'
+    Caption = '<-- P'#225'gina Anterior'
+    Color = clBtnFace
+    Font.Color = clNone
+    Font.Enabled = False
+    Font.Size = 10
+    Font.Style = []
+    FriendlyName = 'IWButtonPrimeiro'
+    TabOrder = 8
+    OnAsyncClick = IWButtonPaginaAnteriorAsyncClick
+  end
+  object IWButtonUltimo: TIWButton [12]
+    Left = 575
+    Top = 136
+    Width = 180
+    Height = 30
+    Visible = False
+    Css = 'btn btn-link'
+    Caption = 'P'#225'g. Final -->>'
+    Color = clBtnFace
+    Font.Color = clNone
+    Font.Enabled = False
+    Font.Size = 10
+    Font.Style = []
+    FriendlyName = 'IWButtonPrimeiro'
+    TabOrder = 9
+    OnAsyncClick = IWButtonUltimoAsyncClick
+  end
+  object IWTextGridConsulta: TIWText [13]
+    Left = 257
+    Top = 26
+    Width = 91
+    Height = 31
+    RenderSize = False
+    StyleRenderOptions.RenderSize = False
+    StyleRenderOptions.RenderPosition = False
+    StyleRenderOptions.RenderFont = False
+    StyleRenderOptions.RenderStatus = False
+    StyleRenderOptions.RenderAbsolute = False
+    StyleRenderOptions.RenderPadding = False
+    StyleRenderOptions.RenderBorder = False
+    BGColor = clNone
+    ConvertSpaces = False
+    Font.Color = clNone
+    Font.Size = 10
+    Font.Style = []
+    FriendlyName = 'IWTextGridConsulta'
+    RawText = True
+    UseFrame = False
+    WantReturns = True
+  end
+  object IWRegionParametros: TIWRegion [14]
+    Left = 7
+    Top = 184
+    Width = 790
+    Height = 81
+    Visible = False
+    RenderInvisibleControls = True
+    OnHTMLTag = IWRegionParametrosHTMLTag
+    StyleRenderOptions.RenderSize = False
+    StyleRenderOptions.RenderPosition = False
+    StyleRenderOptions.RenderFont = False
+    StyleRenderOptions.RenderZIndex = False
+    StyleRenderOptions.RenderVisibility = False
+    StyleRenderOptions.RenderStatus = False
+    StyleRenderOptions.RenderAbsolute = False
+    StyleRenderOptions.RenderPadding = False
+    StyleRenderOptions.UseDisplay = True
+  end
+  object DSConsulta: TDataSource
+    Left = 648
+    Top = 184
+  end
+end

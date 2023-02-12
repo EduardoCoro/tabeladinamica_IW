@@ -1,0 +1,28 @@
+unit LogradouroC;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_IWFormPadraoCadastro, Data.DB,
+  Vcl.Menus, IWVCLComponent, IWBaseLayoutComponent, IWBaseContainerLayout,
+  IWContainerLayout, IWTemplateProcessorHTML, IWCompEdit, IWCompText,
+  IWCompMenu, IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl, IWControl,
+  IWCompButton;
+
+type
+  TTLogradouroC = class(TIWFormPadraoCadastro)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TLogradouroC: TTLogradouroC;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,28 @@
+program FocusWeb;
+
+uses
+  FastMM4,
+  IWRtlFix,
+  IWJclStackTrace,
+  IWJclDebug,
+  IWStart,
+  ServerController in 'Base\ServerController.pas' {IWServerController: TIWServerControllerBase},
+  UserSessionUnit in 'Base\UserSessionUnit.pas' {IWUserSession: TIWUserSessionBase},
+  U__IWFormPadraoCadastro in 'Padrao\U__IWFormPadraoCadastro.pas',
+  U_DMPadrao in 'Padrao\U_DMPadrao.pas' {DMPadrao: TDataModule},
+  U_GeradorTableHTML in 'Padrao\U_GeradorTableHTML.pas',
+  U_IWFormPadrao in 'Padrao\U_IWFormPadrao.pas' {IWFormPadrao: TIWAppForm},
+  U_IWFormPadraoCadastro in 'Padrao\U_IWFormPadraoCadastro.pas' {IWFormPadraoCadastro: TIWAppForm},
+  U_IWFormPadraoConsulta in 'Padrao\U_IWFormPadraoConsulta.pas' {IWFormPadraoConsulta: TIWAppForm},
+  U_DM in 'Base\U_DM.pas' {DM: TDataModule},
+  Saude in 'Saude.pas' {TSaude: TIWAppForm},
+  U_IWFrameLookUp in 'Padrao\U_IWFrameLookUp.pas',
+  DMPrincipal in 'DMPrincipal.pas' {TDMPrincipal: TDataModule},
+  Logradouro in 'Logradouro.pas' {TLogradouro: TIWAppForm},
+  LogradoroC in 'LogradoroC.pas' {TLogradoroC: TIWAppForm};
+
+{$R *.res}
+
+begin
+  TIWStart.Execute(True);
+end.

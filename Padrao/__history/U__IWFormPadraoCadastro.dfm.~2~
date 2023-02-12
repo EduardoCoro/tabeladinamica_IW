@@ -1,0 +1,30 @@
+inherited IWFormPadraoCadastro: TIWFormPadraoCadastro
+  DesignLeft = 2
+  DesignTop = 2
+  object IWButtonSalvar: TIWButton [1]
+    Left = 523
+    Top = 73
+    Width = 120
+    Height = 30
+    Caption = 'Salvar'
+    Color = clBtnFace
+    Font.Color = clNone
+    Font.Size = 10
+    Font.Style = []
+    FriendlyName = 'IWButtonPesquisar'
+    TabOrder = 1
+  end
+  object IWButtonCancelar: TIWButton [2]
+    Left = 656
+    Top = 73
+    Width = 120
+    Height = 30
+    Caption = 'Cancelar'
+    Color = clBtnFace
+    Font.Color = clNone
+    Font.Size = 10
+    Font.Style = []
+    FriendlyName = 'IWButtonPesquisar'
+    TabOrder = 2
+  end
+end

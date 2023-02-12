@@ -1,0 +1,25 @@
+unit U__IWFormPadraoCadastro;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_IWFormPadrao, IWVCLBaseControl,
+  IWBaseControl, IWBaseHTMLControl, IWControl, IWCompButton;
+
+type
+  TIWFormPadraoCadastro = class(TIWFormPadrao)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  IWFormPadraoCadastro: TIWFormPadraoCadastro;
+
+implementation
+
+{$R *.dfm}
+
+end.
